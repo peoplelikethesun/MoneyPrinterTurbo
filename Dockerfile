@@ -24,7 +24,7 @@ COPY ./requirements.txt ./requirements.txt
 COPY ./main.py ./main.py
 
 # Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple &&  pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
 
 # Expose the port the app runs on
 EXPOSE 8501
